@@ -59,8 +59,8 @@ h1 {
 #new-task {
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid #ffc600;
-    color: #ffc600;
+    border: 1px solid #00A97F;
+    color: #00A97F;
     border-radius: 4px;
     background: black;
     padding: 20px;
@@ -334,7 +334,7 @@ h1 {
     overflow-y: auto;
     transition: max-height 0.3s ease;
     background-color: white;
-    color: rgba(29, 189, 127, 0.548);
+    color: #00A97F;
     border-radius: 8px;
     padding: 10px;
 }
