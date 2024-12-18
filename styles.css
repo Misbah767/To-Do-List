@@ -22,8 +22,11 @@ body {
     border-radius: 12px;
     border-radius: 44px;
     border: 1px double white;
-    background: linear-gradient(45deg, black, white);
-    background-size: 1em 1em;
+    --color: rgba(114, 114, 114, 0.3);
+    background-color: #191a1a;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+    background-size: 55px 55px;
     box-shadow: inset 40px 40px 63px #2f2c2c,
 
         inset -35px -34px 64px #4f4a4a;
@@ -265,32 +268,63 @@ h1 {
     gap: 4px;
 }
 
-.filters button {
-    flex-grow: 1;
-    padding: 10px;
-    border: none;
-    background-color: black;
-    color: #ffc600;
+/* From Uiverse.io by nikk7007 */
+.btn {
+    --color: #00A97F;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
-    border-radius: 125px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    font-size: 1em;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
 }
 
-.filters button:hover {
-    background-color: white;
-    color: rgb(217, 142, 217);
-    transform: translateY(-2px);
+.btn::before,
+.btn::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
 }
 
-.filters button.active {
-    border: 2px double black;
-    background: linear-gradient(to top left, rgb(169, 169, 201), pink);
-    color: white;
-    border-radius: 125px;
-
+.btn::before {
+    top: -1em;
+    left: -1em;
 }
+
+.btn::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.btn:hover::before,
+.btn:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.btn:hover {
+    color: rgb(10, 25, 30);
+}
+
+.btn:active {
+    filter: brightness(.8);
+}
+
 
 #task-list {
     list-style: none;
@@ -299,8 +333,8 @@ h1 {
     max-height: 200px;
     overflow-y: auto;
     transition: max-height 0.3s ease;
-    background-color: whitesmoke;
-    color: rgb(217, 142, 217);
+    background-color: white;
+    color: rgba(29, 189, 127, 0.548);
     border-radius: 8px;
     padding: 10px;
 }
